@@ -1,0 +1,8 @@
+on post-fs-data
+    mkdir /data/vendor/eara_io 0770 system system
+    chown system system /proc/blocktag/eara_io_boost
+
+service eara-io /vendor/bin/eara_io_service
+    class main
+    user system
+    group system

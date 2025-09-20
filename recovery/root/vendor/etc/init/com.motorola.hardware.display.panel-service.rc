@@ -1,0 +1,4 @@
+service panel-aidl-service /vendor/bin/hw/com.motorola.hardware.display.panel-service
+    class hal
+    user system
+    group system

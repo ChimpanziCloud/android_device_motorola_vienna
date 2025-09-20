@@ -1,0 +1,12 @@
+service touch_boost /vendor/bin/touch_boost
+    class main
+    user system
+    group system readproc wifi media media_rw camera audio
+
+on boot
+    start touch_boost
+
+on post-fs-data
+
+    chown system system /proc/perfmgr_touch_boost
+    chown system system /proc/perfmgr_touch_boost/ioctl_touch_boost

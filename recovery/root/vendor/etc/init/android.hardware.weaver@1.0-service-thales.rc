@@ -1,0 +1,16 @@
+service weaver_hal_service /vendor/bin/hw/android.hardware.weaver@1.0-service-thales
+    class hal
+    user jc_weaver
+    group jc_weaver
+    disabled
+
+on boot && property:ro.boot.strongbox_support=true
+    start weaver_hal_service
+
+on property:vendor.tcmd.ese.keymint.stop_hal=1 && property:ro.vendor.build.motfactory=1
+    stop weaver_hal_service
+
+on property:vendor.ese.client.restart=1
+    stop weaver_hal_service
+    start weaver_hal_service
+    setprop vendor.ese.client.restart 0

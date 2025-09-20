@@ -1,0 +1,10 @@
+on post-fs-data
+    chmod 666 /proc/ppb/ppb_camera_power
+
+service camerahalserver /vendor/bin/hw/camerahalserver
+    class main
+    user cameraserver
+    group audio camera input drmrpc sdcard_rw system media graphics
+    ioprio rt 4
+    capabilities SYS_NICE
+    task_profiles CameraServiceCapacity MaxPerformance

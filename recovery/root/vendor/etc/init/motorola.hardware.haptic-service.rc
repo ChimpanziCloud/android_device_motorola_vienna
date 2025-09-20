@@ -1,0 +1,4 @@
+service vendor.mot.haptic-hal /vendor/bin/hw/motorola.hardware.haptic-service
+    class hal
+    user system
+    group system

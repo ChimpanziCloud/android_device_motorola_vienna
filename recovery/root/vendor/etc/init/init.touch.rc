@@ -1,0 +1,10 @@
+# TOUCH KO
+
+#on init
+#    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d \
+#        /vendor/lib/modules tui-common.ko gt9895.ko ft3518u.ko st61y.ko gt9916.ko nt36672c.ko gt9886.ko synaptics_tcm.ko gt9896s.ko
+
+# Load touch driver without TUI
+on init
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d \
+        /vendor/lib/modules gt9895.ko ft3518u.ko st61y.ko gt9916.ko nt36672c.ko gt9886.ko synaptics_tcm.ko gt9896s.ko goodix_ts_v1315.ko

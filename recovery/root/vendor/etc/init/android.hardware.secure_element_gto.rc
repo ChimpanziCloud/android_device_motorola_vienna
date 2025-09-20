@@ -1,0 +1,8 @@
+on boot && property:ro.vendor.hw.nfc=ese_st
+    start gto_secure_element_aidl_service
+
+service gto_secure_element_aidl_service /vendor/bin/hw/android.hardware.secure_element-service.thales
+    class hal
+    user secure_element
+    group secure_element nfc
+    disabled

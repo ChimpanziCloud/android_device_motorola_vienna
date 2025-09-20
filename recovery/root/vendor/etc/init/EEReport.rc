@@ -1,0 +1,5 @@
+service EEReport /vendor/bin/EEReport
+    class main
+    user root
+#   group system shell radio sdcard_rw inet sdcard_r media_rw diag
+    group system radio inet diag

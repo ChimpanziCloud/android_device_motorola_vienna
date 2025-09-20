@@ -1,0 +1,4 @@
+service vendor.mot.wlc-hal /vendor/bin/hw/motorola.hardware.wireless.wlc-service
+    class hal
+    user system
+    group system

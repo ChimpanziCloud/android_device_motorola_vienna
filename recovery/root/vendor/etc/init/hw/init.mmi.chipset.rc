@@ -1,0 +1,42 @@
+import /vendor/etc/init/hw/init.mmi.backup.trustlet.rc
+
+#insmod usbnet.ko when on factory mode
+on early-init && property:ro.boot.atm=enable && property:ro.bootmode=mot-factory
+    insmod /vendor/lib/modules/moto_f_usbnet.ko
+
+on early-init
+    insmod /vendor/lib/modules/mmi_info.ko
+
+on early-boot && property:ro.vendor.build.motfactory=1
+    wait /sys/devices/platform/moto_chg_tcmd/force_chg_usb_suspend
+    chown system system /sys/devices/platform/moto_chg_tcmd/force_chg_usb_suspend
+
+on boot
+    write /sys/block/sdc/queue/scheduler bfq
+    write /sys/block/sdc/queue/iosched/slice_idle 0
+
+    write /proc/sys/vm/dirty_background_bytes 26214400
+    write /proc/sys/vm/dirty_bytes 104857600
+
+on early-init && property:ro.vendor.build.type=userdebug
+    setprop persist.service.seek fullaccess
+
+on early-init && property:ro.vendor.build.type=user
+    setprop persist.service.seek "useara usearf"
+
+on property:ro.boot.console="" && property:init.svc.console=running
+    stop console
+
+# For cleaning mbrain data folder
+service vendor.mmi-clean_mbrain-sh /vendor/bin/init.mmi.clean_mbrain.sh
+    class core
+    user root
+    oneshot
+    disabled
+
+on property:vendor.clean_mbrain=true && property:ro.product.is_production=false
+    start vendor.mmi-clean_mbrain-sh
+    setprop vendor.clean_mbrain false
+
+on property:sys.boot_completed=1 && property:ro.boot.moto_kern_prot=true
+   write /proc/moto_rkp/locked 1

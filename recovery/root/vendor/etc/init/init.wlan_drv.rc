@@ -1,0 +1,4 @@
+
+# start wlan assistant on boot
+on boot
+  start wlan_assistant

@@ -1,0 +1,8 @@
+service vendor.mtkgnss-service /vendor/bin/hw/vendor.mediatek.hardware.gnss-service
+    interface aidl vendor.mediatek.hardware.gnss.batching.IMtkGnssBatching/default
+
+    class hal
+    disabled
+    oneshot
+    user system
+    group system gps

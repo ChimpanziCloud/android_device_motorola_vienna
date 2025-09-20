@@ -1,0 +1,4 @@
+service vendor.mot.touch-hal /vendor/bin/hw/com.motorola.hardware.display.touch-service
+    class hal
+    user system
+    group system

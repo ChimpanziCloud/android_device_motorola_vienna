@@ -1,0 +1,4 @@
+service vendor.mot.health-hal-aidl /vendor/bin/hw/motorola.hardware.health-service
+    class hal
+    user system
+    group system

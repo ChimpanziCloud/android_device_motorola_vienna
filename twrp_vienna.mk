@@ -20,6 +20,11 @@ TARGET_OTA_ASSERT_DEVICE := $(PRODUCT_RELEASE_NAME)
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/motorola/$(PRODUCT_RELEASE_NAME)/recovery/root,recovery/root)
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="vienna_g_sys-user 14 U4UIS34M.8-40-1-1 58212 release-keys"
+
+BUILD_FINGERPRINT := motorola/vienna_g_sys/vienna:14/U4UIS34M.8-40-1-1/58212:user/release-keys
+
 PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
 PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := motorola

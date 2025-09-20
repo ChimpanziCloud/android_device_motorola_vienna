@@ -1,0 +1,6 @@
+service vendor.mmlpq-default /vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
+    class main
+    user system
+    group system graphics
+    capabilities SYS_NICE
+    shutdown critical

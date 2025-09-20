@@ -1,0 +1,11 @@
+on boot
+    start roi_stack
+#
+# volte_rcs_ua specific system service and socket information
+#
+service roi_stack /vendor/bin/rcs_volte_stack
+    class core
+    socket rcs_volte_stack stream 660 root system
+    user root
+    group system log inet radio
+    disabled

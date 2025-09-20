@@ -1,0 +1,13 @@
+service biometrics-face-hal /vendor/bin/hw/android.hardware.biometrics.face-service.face-isv
+    class hal
+    user system
+    group camera system
+
+on post-fs-data
+    mkdir /data/vendor/.face 0770 system system
+    mkdir /data/vendor/tetras_data 0770 system system
+    mkdir /data/vendor/tetras_data/config 0770 system system
+    mkdir /data/vendor/tzstorage 0770 system system
+
+on property:persist.sys.cli.lidstate=*
+    setprop vendor.faceauth.cli.lidstate ${persist.sys.cli.lidstate}

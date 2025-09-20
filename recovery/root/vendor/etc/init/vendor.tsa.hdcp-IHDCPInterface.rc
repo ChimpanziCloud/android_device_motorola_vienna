@@ -1,0 +1,5 @@
+service tsa_hdcp_service /vendor/bin/hw/tsa_hdcp_service-service
+    interface aidl vendor.tsa.hdcp.IHDCPInterface/default
+    class hal
+    user system
+    group system media

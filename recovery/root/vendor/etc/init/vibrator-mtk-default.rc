@@ -1,0 +1,14 @@
+on property:sys.boot_completed=1
+    chmod 0666 /dev/aw_haptic
+    chown system system /dev/aw_haptic
+    chmod 0666 /proc/tiktap_buf
+    chown system system /proc/tiktap_buf
+    setprop vendor.haptic.calibrate.done 1
+
+service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service.mediatek
+    class hal
+    user system
+    group system
+
+    setenv RICHTAP_DEVICE_PATH  /dev/aw_haptic
+    setenv ENV_RICHTAP_CONFIG_PATH /odm/etc/aac_richtap.config

@@ -1,0 +1,17 @@
+service vendor.keymint-strongbox /vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales
+    class early_hal
+    user jc_strongbox
+    group jc_strongbox
+    disabled
+
+on post-fs && property:ro.boot.strongbox_support=true
+    start vendor.keymint-strongbox
+
+on property:vendor.tcmd.ese.keymint.stop_hal=1 && property:ro.vendor.build.motfactory=1
+    stop vendor.keymint-strongbox
+
+on property:vendor.ese.client.restart=1
+    stop vendor.keymint-strongbox
+    start vendor.keymint-strongbox
+    stop keystore2
+    start keystore2
