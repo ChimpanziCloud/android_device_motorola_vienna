@@ -1,0 +1,93 @@
+# ========================================
+# Copyright & Licensing
+# ========================================
+# Copyright (C) 2024-2025 The TeamWin Recovery Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# TWRP Device Config for MT6878
+# Maintainer: LazymeaoProjects
+# Date: 2025-05-XX
+#
+# TWRP Decryption Configuration for Trustonic TEE
+# Based on Android 12+ KeyMint architecture analysis
+#
+
+# Import base configurations
+import /system/etc/init/keystore2.rc
+import /tee.rc
+import /trustonic.rc
+
+on init
+    # Extended library path for all security components
+    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
+    setprop crypto.ready 1
+
+on fs
+    install_keyring
+    wait /dev/block/platform/soc/112b0000.ufshci
+    symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
+
+# Start vold early for metadata encryption
+on early-fs
+    start vold
+
+on post-fs-data
+    mkdir /data/vendor_de 0770 system system
+    mkdir /data/vendor_de/0 0770 system system
+    mkdir /data/vendor_de/0/cryptoeng 0770 system system
+
+on property:crypto.ready=1
+    start keymint-trustonic
+
+on property:hwservicemanager.ready=true
+    start mcDriverDaemon
+    start gatekeeper-trustonic
+    start keymint-trustonic
+    start tee-trustonic
+
+on property:ro.crypto.state=unsupported
+    start mcDriverDaemon
+    stop gatekeeper-trustonic
+    stop keymint-trustonic
+    stop tee-trustonic
+
+on property:ro.crypto.state=unencrypted
+    stop mcDriverDaemon
+    stop gatekeeper-trustonic
+    stop keymint-trustonic
+    stop tee-trustonic
+
+on property:twrp.decrypt.done=true
+    stop mcDriverDaemon
+    stop gatekeeper-trustonic
+    stop keymint-trustonic
+    stop tee-trustonic
+
+on property:crypto.ready=0
+    stop mcDriverDaemon
+    stop gatekeeper-trustonic
+    stop keymint-trustonic
+    stop tee-trustonic
+
+# TEE Service - Hardware Security Foundation
+service tee-trustonic /system/bin/vendor.trustonic.tee@1.1-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+# Gatekeeper Service - Authentication Layer
+service gatekeeper-trustonic /system/bin/android.hardware.gatekeeper-service.trustonic
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+# KeyMint Service - Hardware Cryptographic Operations
+service keymint-trustonic /system/bin/android.hardware.security.keymint@3.0-service.trustonic
+    class early_hal
+    interface android.hardware.keymaster@4.0::IKeymasterDevice default
+    interface android.hardware.keymaster@4.1::IKeymasterDevice default
+    user nobody
+    seclabel u:r:recovery:s0

@@ -1,0 +1,7 @@
+service boot-default /system/bin/hw/android.hardware.boot-service.mtk_recovery
+    interface aidl android.hardware.boot.IBootControl/default
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
+    disabled
+    seclabel u:r:recovery:s0

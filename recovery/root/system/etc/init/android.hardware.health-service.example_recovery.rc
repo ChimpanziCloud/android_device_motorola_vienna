@@ -1,0 +1,8 @@
+service health-default /system/bin/hw/android.hardware.health-service.example_recovery
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
+    disabled
+    capabilities WAKE_ALARM BLOCK_SUSPEND
+    file /dev/kmsg w
+    seclabel u:r:recovery:s0

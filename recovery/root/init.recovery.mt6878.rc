@@ -1,0 +1,12 @@
+import init.mtkgki.rc
+import init.recovery.mtk_decrypt.rc
+
+# Filesystem mounting
+on late-fs
+    mount_all /first_stage_ramdisk/fstab.mt6878 --late
+
+on post-fs
+    start boot-default
+
+on boot
+    start health-default
