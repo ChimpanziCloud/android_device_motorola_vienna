@@ -1,24 +1,11 @@
-# ========================================
-# Copyright & Licensing
-# ========================================
-# Copyright (C) 2024-2025 The TeamWin Recovery Project
-# SPDX-License-Identifier: Apache-2.0
-#
-# TWRP Device Config for MT6878
-# Maintainer: LazymeaoProjects
-# Date: 2025-05-XX
-#
+# maintained by ChimpanziCloud (boii ts tuff)
+# chances of working:0.1%
 
-# ========================================
-# Makefile Dependencies
-# ========================================
-# Include the specific device makefile for mt6878 (twrp_mt6878.mk)
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_vienna.mk
+# device makefile cuz yes
+PRODUCT_DEVICE := $(notdir $(LOCAL_DIR))
+PRODUCT_MAKEFILES := device/motorola/vienna/twrp_vienna.mk
 
-# ========================================
-# Lunch Choices
-# ========================================
-# Define available lunch choices for the device. These define different build types.
+#om nom nom (yummy lunch choicez)
 COMMON_LUNCH_CHOICES := \
     twrp_vienna-user \
     twrp_vienna-userdebug \

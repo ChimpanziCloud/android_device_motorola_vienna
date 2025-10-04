@@ -1,17 +1,3 @@
-# ========================================
-# Copyright & Licensing
-# ========================================
-# Copyright (C) 2024-2025 The TeamWin Recovery Project
-# SPDX-License-Identifier: Apache-2.0
-#
-# TWRP Device Config for MT6878
-# Maintainer: LazymeaoProjects
-# Date: 2025-05-XX
-#
-# TWRP Decryption Configuration for Trustonic TEE
-# Based on Android 12+ KeyMint architecture analysis
-#
-
 # Import base configurations
 import /system/etc/init/keystore2.rc
 import /tee.rc

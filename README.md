@@ -1,1 +1,0 @@
-# android_recovery_device_nothing_mt6878
