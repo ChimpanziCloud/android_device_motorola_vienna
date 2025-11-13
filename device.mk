@@ -7,6 +7,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 PRODUCT_TARGET_VNDK_VERSION := 32
 PRODUCT_SHIPPING_API_LEVEL := 32
+SHIPPING_API_LEVEL := 32
 PRODUCT_PLATFORM := mt6878
 PRODUCT_BOARD := mgvi_64_ww_armv82
 
@@ -19,7 +20,7 @@ AB_OTA_PARTITIONS += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
 
@@ -29,10 +30,11 @@ PRODUCT_PACKAGES += \
     fastbootd
     
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-recovery \
-    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-mtkimpl-recovery \
+    android.hardware.boot@1.1-mtkimpl \
     android.hardware.boot@1.1-service \
-    bootctrl
+    bootctrl \
+    bootctrl.recovery
 
 PRODUCT_PACKAGES += \
     bootctrl.mt6878 \
