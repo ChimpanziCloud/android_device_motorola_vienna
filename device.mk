@@ -7,7 +7,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 PRODUCT_TARGET_VNDK_VERSION := 32
 PRODUCT_SHIPPING_API_LEVEL := 32
-SHIPPING_API_LEVEL := 32
 PRODUCT_PLATFORM := mt6878
 PRODUCT_BOARD := mgvi_64_ww_armv82
 
@@ -20,7 +19,7 @@ AB_OTA_PARTITIONS += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=erofs \
+    FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
 
@@ -30,35 +29,10 @@ PRODUCT_PACKAGES += \
     fastbootd
     
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl-recovery \
-    android.hardware.boot@1.2-mtkimpl \
-    android.hardware.boot@1.2-service \
-    bootctrl \
-    bootctrl.recovery
-    
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
-
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1 \
-    android.system.keystore2
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.crypto.dm_default_key.options_format.version=2 \
-	ro.crypto.volume.metadata.method=dm-default-key \
-	keymaster_ver=4.1
-
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint \
-    android.hardware.security.secureclock \
-    android.hardware.security.sharedsecret
-
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
-
-TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.1
+    android.hardware.boot@1.1-impl-recovery \
+    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-service \
+    bootctrl
 
 PRODUCT_PACKAGES += \
     bootctrl.mt6878 \
