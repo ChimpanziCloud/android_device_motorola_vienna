@@ -135,7 +135,6 @@ Return<void> BootControl::getSuffix(uint32_t slot, getSuffix_cb _hidl_cb) {
     return Void();
 }
 
-// Methods from ::android::hardware::boot::V1_1::IBootControl follow.
 Return<bool> BootControl::setSnapshotMergeStatus(MergeStatus status) {
     return impl_.SetSnapshotMergeStatus(status);
 }
@@ -146,9 +145,7 @@ Return<MergeStatus> BootControl::getSnapshotMergeStatus() {
 
 // Methods from ::android::hardware::boot::V1_2::IBootControl follow.
 Return<uint32_t> BootControl::getActiveBootSlot() {
-    if (!impl_.GetActiveBootSlot()) {
-        return 0;
-    }
+    if (!impl_.GetActiveBootSlot()) return 0;
     return impl_.GetActiveBootSlot();
 }
 
