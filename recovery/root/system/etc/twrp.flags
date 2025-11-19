@@ -1,0 +1,30 @@
+/boot			emmc		/dev/block/by-name/boot			flags=display=boot;slotselect;backup=1;flashimg
+/init_boot          	emmc     	/dev/block/by-name/init_boot			flags=display=init_boot;slotselect;backup=1;flashimg
+/vendor_boot		emmc		/dev/block/by-name/vendor_boot 		flags=display=vendor_boot;slotselect;backup=1;flashimg
+/vbmeta		emmc		/dev/block/by-name/vbmeta			flags=display=vbmeta;slotselect;backup;flashimg
+/vbmeta_system		emmc		/dev/block/by-name/vbmeta_system		flags=display=vbmeta_system;slotselect;backup;flashimg
+									
+# Firmware								
+/dtbo			emmc		/dev/block/by-name/dtbo			flags=display=dtbo;slotselect;backup
+/odmdtbo		emmc		/dev/block/by-name/odmdtbo			flags=display=odmdtbo;slotselect;backup
+/metadata		f2fs		/dev/block/by-name/metadata			flags=display=metadata;backup=1
+/data			f2fs		/dev/block/by-name/userdata			flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption
+/misc			emmc		/dev/block/by-name/misc			flags=display=misc;backup
+
+# Sensitive Data
+/nvcfg			ext4		/dev/block/by-name/nvcfg			flags=display=nvcfg;backup
+/persist_image		ext4		/dev/block/by-name/persist			flags=display=persist;backup
+/persist_image2	ext4		/dev/block/by-name/prodpersist		flags=display=prodpersist;backup
+/persistent		emmc		/dev/block/by-name/frp				flags=display=persistent;backup
+
+# IMEI and modem related
+/nvdata		ext4		/dev/block/by-name/nvdata			flags=display=nvdata;backup
+/protect_f		ext4		/dev/block/by-name/protect1			flags=display=protect_f;backup
+/protect_s		ext4		/dev/block/by-name/protect2			flags=display=protect_s;backup
+/nvram			emmc		/dev/block/by-name/nvram			flags=display=nvram;backup
+
+# Removable Storage
+/usb_otg		auto		/dev/block/sda					flags=display="USB-Storage";storage;wipeingui;removable;backup=0
+
+# Internal Storage
+/storage		ext4		/data/media/0					flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
