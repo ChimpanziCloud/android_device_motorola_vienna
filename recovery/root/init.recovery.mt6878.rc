@@ -127,7 +127,7 @@ on property:ro.crypto.state=unsupported
     start mobicore
     stop vendor.gatekeeper-default
     stop vendor.keymint-trustonic
-    stop tee-trustonic
+    stop tee-1-1
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
