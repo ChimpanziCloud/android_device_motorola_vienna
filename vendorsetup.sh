@@ -1,3 +1,4 @@
+export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL="C"
 export FOX_BUILD_DEVICE=vienna
 export FOX_VIRTUAL_AB_DEVICE=1
