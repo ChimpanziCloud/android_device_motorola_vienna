@@ -101,5 +101,18 @@ git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -
 ```
 ## Build
 ```bash
-export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_vienna-ap2a-eng && mka adbd vendorbootimage
+build/envsetup.sh; lunch twrp_vienna-ap2a-eng && mka adbd vendorbootimage
+```
+## Common Fixes
+- Terminal Closing after 2 Minutes: run this command to disable systemd-oomd which causes Terminal to close if high memory usage (Ubuntu 22.04 and Later)
+```bash
+systemctl disable --now systemd-oomd
+```
+To check if it worked run this command
+```bash
+systemctl is-enabled systemd-oomd
+```
+The output should be
+```bash
+disabled
 ```
