@@ -173,15 +173,16 @@ TW_DEVICE_VERSION := v0.1.0 | cloud
 # TWRP Tools & Features
 # ========================================
 # Core tools for filesystem and debugging
-TW_INCLUDE_FB2PNG := true  # Framebuffer screenshot support
-TW_INCLUDE_NTFS_3G := true  # NTFS read/write
-TW_INCLUDE_FUSE_EXFAT := true  # ExFAT support via fuse
-TW_INCLUDE_FUSE_NTFS := true  # NTFS via fuse
+SIZE_REDUCTION_PLACEHOLDER := false
+TW_INCLUDE_FB2PNG := $(SIZE_REDUCTION_PLACEHOLDER)  # Framebuffer screenshot support
+TW_INCLUDE_NTFS_3G := $(SIZE_REDUCTION_PLACEHOLDER)  # NTFS read/write
+TW_INCLUDE_FUSE_EXFAT := $(SIZE_REDUCTION_PLACEHOLDER)  # ExFAT support via fuse
+TW_INCLUDE_FUSE_NTFS := $(SIZE_REDUCTION_PLACEHOLDER)  # NTFS via fuse
 # Resetprop (to override props)
-TW_INCLUDE_RESETPROP := true
-TW_INCLUDE_LIBRESETPROP := true
+TW_INCLUDE_RESETPROP := $(SIZE_REDUCTION_PLACEHOLDER)
+TW_INCLUDE_LIBRESETPROP := $(SIZE_REDUCTION_PLACEHOLDER)
 # Repack boot images
-TW_INCLUDE_REPACKTOOLS := true
+TW_INCLUDE_REPACKTOOLS := $(SIZE_REDUCTION_PLACEHOLDER)
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_LPDUMP := true
 DEXPREOPT_GENERATE_APEX_IMAGE := true
