@@ -1,8 +1,9 @@
-# OFRP device tree for Motorola Edge 50 Neo (vienna)
+# TWRP device tree for Motorola Edge 50 Neo (vienna)
 
 Official released on August 29 2024
 
 # Maintainers
+- [TeamWin Recovery Project](https://github.com/TeamWin) - developer manifest
 - [OrangeFox Recovery Project](https://gitlab.com/OrangeFox) - developer manifest
 - [Cloud](https://github.com/ChimpanziCloud) - Device owner and developer
 
@@ -77,16 +78,18 @@ Minor checks
 - [✖] partition SD card (No SD card slot)
 - [✔] Fastbootd
 
-
-## Clone manifest ofrp-14.1 
+## To Build with OrangeFox manifest
+**Clone manifest ofrp-14.1**
 ```bash
+sudo apt install git
+sudo apt install repo
 sudo apt install git aria2 -y
 git clone https://gitlab.com/OrangeFox/misc/scripts
 cd scripts
 sudo bash setup/android_build_env.sh
 sudo bash setup/install_android_sdk.sh
 ```
-## Sync manifest ofrp-14.1
+**Sync manifest ofrp-14.1**
 ```bash
 mkdir ~/OrangeFox_sync
 cd ~/OrangeFox_sync
@@ -94,14 +97,37 @@ git clone https://gitlab.com/OrangeFox/sync.git
 cd ~/OrangeFox_sync/sync/
 ./orangefox_sync.sh --branch 14.1 --path ~/fox_14.1
 ```
-## Cloning the device tree
+**Cloning the device tree**
 ```bash
 cd ~/fox_14.1
 git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b ofrp-14.1 device/motorola/vienna
 ```
-## Build
+**Build**
 ```bash
 build/envsetup.sh; lunch twrp_vienna-ap2a-eng && mka adbd vendorbootimage
+```
+## To Build with TeamWin manifest
+**Clone manifest twrp-14.1**
+```bash
+sudo apt install git
+sudo apt install repo
+mkdir ~/twrp_14.1
+cd ~/twrp_14.1
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-14.1
+```
+**Sync manifest twrp-14.1**
+```bash
+repo sync
+```
+**Cloning the device tree**
+```bash
+cd ~/twrp_14.1
+git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b twrp-14.1 device/motorola/vienna
+```
+**Build**
+```bash
+export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_vienna-ap2a-eng
+mka vendorbootimage
 ```
 ## Common Fixes
 - Terminal Closing after 2 Minutes: run this command to disable systemd-oomd which causes Terminal to close if high memory usage (Ubuntu 22.04 and Later)
