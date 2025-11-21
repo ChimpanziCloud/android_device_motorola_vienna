@@ -1,6 +1,6 @@
 ro.postinstall.fstab.prefix=/system
 ro.vendor.mediatek.platform=MT6878
-ro.sys.usb.storage.type=mtp,adb
+ro.sys.usb.storage.type=adb
 ro.hardware.gatekeeper=trustonic
 ro.hardware.kmsetkey=trustonic
 ro.vendor.mtk_tee_gp_support=1
