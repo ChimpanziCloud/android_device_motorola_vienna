@@ -1,4 +1,4 @@
-name: Recovery Build
+name: TeamWin - Build
 
 on:
   workflow_dispatch:
