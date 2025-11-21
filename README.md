@@ -100,7 +100,7 @@ cd ~/OrangeFox_sync/sync/
 **Cloning the device tree**
 ```bash
 cd ~/fox_14.1
-git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b ofrp-14.1 device/motorola/vienna
+git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b twrp-14.1 device/motorola/vienna
 ```
 **Build**
 ```bash
