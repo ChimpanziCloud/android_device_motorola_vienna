@@ -106,7 +106,7 @@ git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -
 ```bash
 build/envsetup.sh; lunch twrp_vienna-eng && mka adbd vendorbootimage
 ```
-## To Build with TeamWin manifest
+## To Build with TeamWin manifest (Not Reccomended/Broken)
 **Clone manifest twrp-12.1**
 ```bash
 sudo apt install git
