@@ -110,9 +110,12 @@ BOARD_USES_METADATA_PARTITION := true
 # ========================================
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_USE_FSCRYPT_POLICY := 2
 TW_FORCE_KEYMASTER_VER := true
+TW_NO_BIND_SYSTEM := true
+TW_NO_LEGACY_PROPS := true
 
 # Enables proper handling of /data/media
 RECOVERY_SDCARD_ON_DATA := true
