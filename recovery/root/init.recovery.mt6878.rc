@@ -79,6 +79,19 @@ service mtk.plpath.utils.link /system_ext/bin/mtk_plpath_utils
     disabled
     seclabel:u:r:recovery:s0
     
+service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0   
+
+service keystore /system/bin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc log
+    disabled
+    seclabel u:r:recovery:s0  
+    
 service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
     class hal
     user system
@@ -121,8 +134,11 @@ service vendor.health-default /system/bin/hw/android.hardware.health-service.exa
     capabilities WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
     
-on property:crypto.ready=1
+on property:vendor.sys.listener.registered=true
+    start mobicore
+    start vendor.gatekeeper-default
     start vendor.keymint-trustonic
+    start tee-1-1
     
 on property:hwservicemanager.ready=true
     start mobicore
@@ -131,7 +147,9 @@ on property:hwservicemanager.ready=true
     start tee-1-1
 
 on property:ro.crypto.state=unsupported
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
     start mobicore
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
     stop vendor.gatekeeper-default
     stop vendor.keymint-trustonic
     stop tee-1-1
@@ -156,4 +174,4 @@ on property:crypto.ready=0
     
 on post-fs-data
     start vendor.health-default
-    setprop sys.usb.config mtp,adb
+    setprop sys.usb.config adb
