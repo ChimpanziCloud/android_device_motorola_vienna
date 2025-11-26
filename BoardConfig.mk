@@ -145,7 +145,7 @@ BOARD_AVB_ENABLE := true
 # ========================================
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6878.rc
-#TW_SKIP_ADDITIONAL_FSTAB := true
+TW_SKIP_ADDITIONAL_FSTAB := true
 
 # ========================================
 # System Properties
