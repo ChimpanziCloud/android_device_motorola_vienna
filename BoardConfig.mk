@@ -118,7 +118,7 @@ TW_NO_BIND_SYSTEM := true
 TW_NO_LEGACY_PROPS := true
 
 # Enables proper handling of /data/media
-RECOVERY_SDCARD_ON_DATA := true
+#RECOVERY_SDCARD_ON_DATA := true
 
 # ========================================
 # Anti-Rollback Bypass
