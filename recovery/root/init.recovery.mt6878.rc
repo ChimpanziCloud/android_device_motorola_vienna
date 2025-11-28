@@ -1,3 +1,4 @@
+import /system/etc/init/keystore2.rc
 import /init.vibrator.rc
 import /init.tee.rc
 
