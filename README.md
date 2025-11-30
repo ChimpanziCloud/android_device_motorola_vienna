@@ -49,7 +49,7 @@ Blocking checks
 - [✖] Backup to internal/microSD (No SD card slot)
 - [✖] Restore from internal/microSD (No SD card slot)
 - [✔] reboot to system
-- [✖] ADB (In Recovery Mode)
+- [✔] ADB
 
 Medium checks
 - [✔] update.zip sideload
@@ -64,8 +64,8 @@ Medium checks
 
 Minor checks
 - [✖] MTP export
-- [✖] reboot to bootloader
-- [✖] reboot to recovery
+- [✔] reboot to bootloader
+- [✔] reboot to recovery
 - [✔] poweroff
 - [✖] battery level
 - [✖] temperature
