@@ -1,7 +1,3 @@
-import /system/etc/init/keystore2.rc
-import /init.vibrator.rc
-import /init.tee.rc
-
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
