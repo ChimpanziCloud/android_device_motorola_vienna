@@ -17,7 +17,7 @@ on early-fs
     start vold
 
 on late-fs
-    mount_all /first_stage_ramdisk/fstab.mt8781 --late
+    mount_all /first_stage_ramdisk/fstab.mt6878 --late
 
 on post-fs
     symlink /dev/block/sda /dev/block/mmcblk0boot0
@@ -77,8 +77,8 @@ service mtk.plpath.utils.link /system_ext/bin/mtk_plpath_utils
 
 service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
     class hal
-    user system
-    group system
+    user root
+    group root
     disabled
     seclabel u:r:recovery:s0
 
