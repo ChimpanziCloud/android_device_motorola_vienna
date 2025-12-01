@@ -170,6 +170,8 @@ TW_NO_SCREEN_BLANK := true
 # CPU temp sysfs path, if it is zero all the time
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone9/temp
 TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/smart_battery/power_supply/battery/capacity
+TW_BATTERY_SYSFS_WAIT_SECONDS := 5
+TW_USE_LEGACY_BATTERY_SERVICES := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
