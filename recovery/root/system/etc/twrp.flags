@@ -8,7 +8,7 @@
 /dtbo			emmc		/dev/block/by-name/dtbo			flags=display=dtbo;slotselect;backup
 /odmdtbo		emmc		/dev/block/by-name/odmdtbo			flags=display=odmdtbo;slotselect;backup
 /metadata		f2fs		/dev/block/by-name/metadata			flags=display=metadata;backup=1
-/data			f2fs		/dev/block/by-name/userdata			flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption
+/data			f2fs		/dev/block/by-name/userdata			flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption,fsverity
 /misc			emmc		/dev/block/by-name/misc			flags=display=misc;backup
 
 # Sensitive Data
