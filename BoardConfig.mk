@@ -116,11 +116,6 @@ TW_INCLUDE_CRYPTO_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE_METADATA_DECRYPT := $(INCLUDE_CRYPTO)
 #TW_USE_FSCRYPT_POLICY := 2
-TW_NO_BIND_SYSTEM := true
-TW_NO_LEGACY_PROPS := true
-
-# Enables proper handling of /data/media
-RECOVERY_SDCARD_ON_DATA := false
 
 # ========================================
 # Anti-Rollback Bypass
@@ -170,8 +165,7 @@ TW_NO_SCREEN_BLANK := true
 # CPU temp sysfs path, if it is zero all the time
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone9/temp
 TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/smart_battery/power_supply/battery/capacity
-TW_BATTERY_SYSFS_WAIT_SECONDS := 5
-TW_USE_LEGACY_BATTERY_SERVICES := true
+TW_BATTERY_SYSFS_WAIT_SECONDS := 10
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -183,7 +177,7 @@ TW_DEVICE_VERSION := v0.1.0 | cloud
 # TWRP Tools & Features
 # ========================================
 # Core tools for filesystem and debugging
-SIZE_REDUCTION_PLACEHOLDER := false
+SIZE_REDUCTION_PLACEHOLDER := true
 TW_INCLUDE_FB2PNG := $(SIZE_REDUCTION_PLACEHOLDER)  # Framebuffer screenshot support
 TW_INCLUDE_NTFS_3G := $(SIZE_REDUCTION_PLACEHOLDER)  # NTFS read/write
 TW_INCLUDE_FUSE_EXFAT := $(SIZE_REDUCTION_PLACEHOLDER)  # ExFAT support via fuse
