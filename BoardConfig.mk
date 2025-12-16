@@ -110,12 +110,12 @@ BOARD_USES_METADATA_PARTITION := true
 # ========================================
 # Encryption / Decryption Support (FBE)
 # ========================================
-INCLUDE_CRYPTO := false
+INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO := $(INCLUDE_CRYPTO)
 TW_INCLUDE_CRYPTO_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE_METADATA_DECRYPT := $(INCLUDE_CRYPTO)
-#TW_USE_FSCRYPT_POLICY := 2
+TW_USE_FSCRYPT_POLICY := 2
 
 # ========================================
 # Anti-Rollback Bypass
@@ -177,7 +177,7 @@ TW_DEVICE_VERSION := v0.1.0 | cloud
 # TWRP Tools & Features
 # ========================================
 # Core tools for filesystem and debugging
-SIZE_REDUCTION_PLACEHOLDER := true
+SIZE_REDUCTION_PLACEHOLDER := false
 TW_INCLUDE_FB2PNG := $(SIZE_REDUCTION_PLACEHOLDER)  # Framebuffer screenshot support
 TW_INCLUDE_NTFS_3G := $(SIZE_REDUCTION_PLACEHOLDER)  # NTFS read/write
 TW_INCLUDE_FUSE_EXFAT := $(SIZE_REDUCTION_PLACEHOLDER)  # ExFAT support via fuse
@@ -189,7 +189,6 @@ TW_INCLUDE_LIBRESETPROP := $(SIZE_REDUCTION_PLACEHOLDER)
 TW_INCLUDE_REPACKTOOLS := $(SIZE_REDUCTION_PLACEHOLDER)
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_LPDUMP := true
-DEXPREOPT_GENERATE_APEX_IMAGE := true
 TW_HAS_MTP := true
 TW_USB_STORAGE := true
 
