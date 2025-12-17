@@ -1,9 +1,12 @@
+on early-init
+    start vendor.gatekeeper_default
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
-    setprop crypto.ready 1
-
+    setprop prepdecrypt.setpatch true
+    
 on fs && property:ro.debuggable=0
     start adbd
     
@@ -67,48 +70,18 @@ on property:vendor.mtk.boot1_linkb=1
 on property:vendor.mtk.boot1_linkc=1
     symlink /dev/block/sdc /dev/block/mmcblk0boot1
 
-service mtk.plpath.utils.link /system_ext/bin/mtk_plpath_utils
+service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
     user root
     group root system
     oneshot
     disabled
     seclabel:u:r:recovery:s0
-
-service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
-    class hal
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
-    class early_hal
-    interface aidl android.hardware.gatekeeper.IGatekeeper/default
-    user system
-    group system
-    disabled
-    seclabel u:r:recovery:s0
-
-service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
-    class early_hal
-    interface aidl android.hardware.security.keymint.IKeyMintDevice/default
-    interface aidl android.hardware.security.keymint.IRemotelyProvisionedComponent/default
-    interface aidl android.hardware.security.sharedsecret.ISharedSecret/default
-    interface aidl android.hardware.security.secureclock.ISecureClock/default
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
+    
+on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
+    start prepdecrypt.vendor
     
 on property:vendor.sys.listener.registered=true
-    start mobicore
-    start vendor.gatekeeper-default
-    start vendor.keymint-trustonic
-    start tee-1-1
-    
-on property:hwservicemanager.ready=true
     start mobicore
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
