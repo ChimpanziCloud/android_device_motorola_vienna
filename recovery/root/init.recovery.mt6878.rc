@@ -1,6 +1,4 @@
 on early-init
-    wait /sys/fs/selinux/enforce
-    write /sys/fs/selinux/enforce 0
     start vendor.gatekeeper_default
 
 on init

@@ -32,7 +32,8 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 PRODUCT_PACKAGES += \
-    bootctrl
+    bootctrl \
+    bootctrl.recovery
     
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
