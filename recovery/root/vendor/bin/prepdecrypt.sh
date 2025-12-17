@@ -29,7 +29,7 @@ check_setpatch_override()
 # the script runs. These values should be updated to reflect the
 # TWRP defaults in your device's BoardConfig.mk
 osver_twrp="99.87.36"
-patchlevel_twrp="2127-12-31"
+patchlevel_twrp="2099-12-31"
 
 # Set default log level
 DEFAULT_LOGLEVEL=2
