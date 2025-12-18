@@ -1,6 +1,0 @@
-service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
-    class early_hal
-    user root
-    group root drmrpc
-    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
-    seclabel u:r:recovery:s0

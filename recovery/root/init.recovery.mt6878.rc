@@ -8,7 +8,6 @@ on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
-    setprop prepdecrypt.setpatch true
     
 on fs && property:ro.debuggable=0
     start adbd
@@ -83,8 +82,28 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     disabled
     seclabel:u:r:recovery:s0
     
-on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
-    start prepdecrypt.vendor
+service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
+    class hal
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    disabled
+    seclabel u:r:recovery:s0
+    
+service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
+    class early_hal
+    user root
+    group root drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    seclabel u:r:recovery:s0
+    
+service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
+    class early_hal
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    disabled
+    seclabel u:r:recovery:s0
     
 on property:vendor.sys.listener.registered=true
     start mobicore
