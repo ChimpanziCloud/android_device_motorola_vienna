@@ -176,7 +176,7 @@ TW_DEVICE_VERSION := v0.1.0 | cloud
 # TWRP Tools & Features
 # ========================================
 # Core tools for filesystem and debugging
-SIZE_REDUCTION_PLACEHOLDER := false
+SIZE_REDUCTION_PLACEHOLDER := true
 TW_INCLUDE_FB2PNG := $(SIZE_REDUCTION_PLACEHOLDER)  # Framebuffer screenshot support
 TW_INCLUDE_NTFS_3G := $(SIZE_REDUCTION_PLACEHOLDER)  # NTFS read/write
 TW_INCLUDE_FUSE_EXFAT := $(SIZE_REDUCTION_PLACEHOLDER)  # ExFAT support via fuse
