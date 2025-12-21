@@ -110,12 +110,12 @@ BOARD_USES_METADATA_PARTITION := true
 # ========================================
 # Encryption / Decryption Support (FBE)
 # ========================================
-INCLUDE_CRYPTO := true
+INCLUDE_CRYPTO := false
 TW_INCLUDE_CRYPTO := $(INCLUDE_CRYPTO)
 TW_INCLUDE_CRYPTO_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE_METADATA_DECRYPT := $(INCLUDE_CRYPTO)
-TW_USE_FSCRYPT_POLICY := 2
+#TW_USE_FSCRYPT_POLICY := 2
 
 # ========================================
 # Anti-Rollback Bypass
