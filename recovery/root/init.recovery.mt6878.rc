@@ -139,6 +139,3 @@ on property:crypto.ready=0
     stop vendor.gatekeeper-default
     stop vendor.keymint-trustonic
     stop tee-1-1
-    
-on post-fs-data
-    setprop sys.usb.config adb
