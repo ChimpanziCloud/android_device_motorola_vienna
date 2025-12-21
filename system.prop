@@ -5,3 +5,5 @@ ro.hardware.gatekeeper=trustonic
 ro.hardware.kmsetkey=trustonic
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
+
+test
