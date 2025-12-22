@@ -1,6 +1,10 @@
 import /trustonic.rc
 import /tee.rc
 
+on early-init
+    wait /sys/fs/selinux/enforce
+    write /sys/fs/selinux/enforce 0
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
