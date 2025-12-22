@@ -32,8 +32,20 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 PRODUCT_PACKAGES += \
-    bootctrl \
-    bootctrl.recovery
+    android.hardware.boot@1.2-service \
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery
+
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
+
+PRODUCT_PACKAGES += \
+    bootctrl.mt6878 \
+    bootctrl.mt6878.recovery
+
+PRODUCT_PACKAGES += \
+    android.system.keystore2
     
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
