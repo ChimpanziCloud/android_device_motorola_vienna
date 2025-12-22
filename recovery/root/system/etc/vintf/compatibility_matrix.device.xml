@@ -6,7 +6,7 @@
         motorola/hardware/interfaces/health/storage/1.0/framework_compatibility_matrix.xml
         device/mediatek/system/common/device_framework_matrix.xml
 -->
-<compatibility-matrix version="7.0" type="framework">
+<compatibility-matrix version="4.0" type="framework">
     <hal format="aidl" optional="true">
         <name>android.hardware.biometrics.fingerprint</name>
         <interface>
