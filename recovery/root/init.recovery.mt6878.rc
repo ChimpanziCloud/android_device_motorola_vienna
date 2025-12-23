@@ -9,7 +9,6 @@ on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "11201000.usb0"
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
-    setprop crypto.ready 1
     
 on fs && property:ro.debuggable=0
     start adbd
@@ -112,7 +111,7 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
     disabled
     seclabel u:r:recovery:s0
     
-on property:vendor.sys.listener.registered=true
+on property:hwservicemanager.ready=true
     start mobicore
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
