@@ -110,6 +110,9 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
     disabled
     seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start vendor.keymint-trustonic
     
 on property:hwservicemanager.ready=true
     start mobicore
