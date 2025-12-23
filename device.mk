@@ -46,6 +46,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.system.keystore2
+
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret
+
+
     
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
