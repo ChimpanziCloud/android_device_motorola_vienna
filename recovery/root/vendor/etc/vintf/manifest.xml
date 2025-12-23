@@ -104,6 +104,11 @@
         <fqname>IRadioVoice/slot1</fqname>
         <fqname>IRadioVoice/slot2</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.gatekeeper</name>
+        <version>1</version>
+        <fqname>IGatekeeper/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
         <transport arch="32+64">passthrough</transport>
