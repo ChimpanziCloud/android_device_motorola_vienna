@@ -115,9 +115,9 @@ on property:crypto.ready=1
     start vendor.keymint-trustonic
     
 on property:hwservicemanager.ready=true
-    rm -rf /mnt/vendor/tzapp
-    symlink /vendor/app/mcRegistry /mnt/vendor/tzapp
     start mobicore
+    exec /sbin/sh -c "cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
+    exec /sbin/sh -c "cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
