@@ -39,6 +39,7 @@ on post-fs
 
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
+    start vendor.gatekeeper-default
 
 on boot
     mkdir /mnt/vendor/persist
@@ -108,7 +109,6 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
     user root
     group root
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
-    disabled
     seclabel u:r:recovery:s0
 
 on property:crypto.ready=1
