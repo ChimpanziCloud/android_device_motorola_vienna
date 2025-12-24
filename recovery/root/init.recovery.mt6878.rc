@@ -128,7 +128,7 @@ on property:hwservicemanager.ready=true
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
-    exec_background /system/bin/sh -c "sleep 10; cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
+    exec_background /system/bin/sh -c "sleep 20; cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
     exec_background /system/bin/sh -c "sleep 1; cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
 
 on property:ro.crypto.state=unsupported
