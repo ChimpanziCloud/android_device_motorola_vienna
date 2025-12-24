@@ -124,7 +124,6 @@ on property:hwservicemanager.ready=true
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
-    wait /mnt/vendor/tzapp
     exec /sbin/sh -c "cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
     exec /sbin/sh -c "cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
 
