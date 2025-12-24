@@ -4,6 +4,7 @@ import /tee.rc
 on early-init
     wait /sys/fs/selinux/enforce
     write /sys/fs/selinux/enforce 0
+    start vendor.gatekeeper-default
 
 on init
     setprop sys.usb.configfs 1
@@ -39,7 +40,6 @@ on post-fs
 
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
-    start vendor.gatekeeper-default
 
 on boot
     mkdir /mnt/vendor/persist
