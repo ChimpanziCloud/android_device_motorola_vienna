@@ -113,15 +113,20 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
 
 on property:crypto.ready=1
     start vendor.keymint-trustonic
-    
-on property:hwservicemanager.ready=true
-    start mobicore
+
+on property:ro.crypto.state=encrypted
     wait /mnt/vendor/tzapp
     exec /sbin/sh -c "cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
     exec /sbin/sh -c "cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
+    
+on property:hwservicemanager.ready=true
+    start mobicore
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
+    wait /mnt/vendor/tzapp
+    exec /sbin/sh -c "cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
+    exec /sbin/sh -c "cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
 
 on property:ro.crypto.state=unsupported
     write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
