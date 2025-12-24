@@ -115,6 +115,7 @@ on property:crypto.ready=1
     start vendor.keymint-trustonic
     
 on property:hwservicemanager.ready=true
+    rm -rf /mnt/vendor/tzapp
     symlink /vendor/app/mcRegistry /mnt/vendor/tzapp
     start mobicore
     start vendor.gatekeeper-default
