@@ -44,12 +44,12 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="aidl" optional="true">
         <name>android.hardware.gatekeeper</name>
         <version>1</version>
         <fqname>IGatekeeper/default</fqname>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="true">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
