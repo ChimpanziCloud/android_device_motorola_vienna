@@ -53,7 +53,11 @@ PRODUCT_PACKAGES += \
     android.hardware.security.sharedsecret
 
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service 
+
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.hardware.gatekeeper-V1-ndk.so
     
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
