@@ -129,9 +129,9 @@ on property:hwservicemanager.ready=true
     start tee-1-1
 
 on property:ro.crypto.state=unsupported
-    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (unsupported crypto state)"
     start mobicore
-    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
+    write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (unsupported crypto state)"
     stop vendor.gatekeeper-default
     stop vendor.keymint-trustonic
     stop tee-1-1
