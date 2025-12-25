@@ -52,7 +52,8 @@ PRODUCT_PACKAGES += \
     android.hardware.security.secureclock \
     android.hardware.security.sharedsecret
 
-
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper
     
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
