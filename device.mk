@@ -50,7 +50,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint \
     android.hardware.security.secureclock \
-    android.hardware.security.sharedsecret
+    android.hardware.security.sharedsecret \
+    android.hardware.gatekeeper
 
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
