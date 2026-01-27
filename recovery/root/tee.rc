@@ -37,8 +37,6 @@ on property:ro.crypto.type=file && property:ro.crypto.state=encrypted
     write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry ++ (FBE encrypted)"
     mkdir /data/vendor/mcRegistry 0775 system system
     write /proc/bootprof "MOBICORE: create /data/vendor/mcRegistry -- (FBE encrypted)"
-    exec_background /system/bin/sh -c "sleep 30; cp /vendor/app/mcRegistry/0706000000000000000000000000004d.tlbin /mnt/vendor/tzapp"
-    exec_background /system/bin/sh -c "sleep 1; cp /vendor/app/mcRegistry/07150000000000000000000000000000.tlbin /mnt/vendor/tzapp"
 
 # Normal mode, FDE
 on property:vold.decrypt=trigger_restart_framework
