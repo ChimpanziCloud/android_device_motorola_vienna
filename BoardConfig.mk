@@ -67,10 +67,8 @@ BOARD_MKBOOTIMG_ARGS += \
 TARGET_NO_RECOVERY := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_RAMDISK_USE_LZ4 := true
-BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := false
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-BOARD_VENDOR_RAMDISK_FRAGMENTS := recovery
-BOARD_VENDOR_RAMDISK_FRAGMENT.recovery.MKBOOTIMG_ARGS := --ramdisk_type RECOVERY
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 
 BOARD_FLASH_BLOCK_SIZE := 262144
@@ -142,6 +140,7 @@ BOARD_AVB_ENABLE := true
 # ========================================
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6878.rc
+
 TW_SKIP_ADDITIONAL_FSTAB := true
 
 # ========================================
@@ -164,6 +163,7 @@ TW_NO_SCREEN_BLANK := true
 
 # CPU temp sysfs path, if it is zero all the time
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone9/temp
+TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/smart_battery/power_supply/battery/capacity"
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
