@@ -37,8 +37,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-mtkimpl.recovery
 
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
 
 PRODUCT_PACKAGES += \
     bootctrl.mt6878 \
