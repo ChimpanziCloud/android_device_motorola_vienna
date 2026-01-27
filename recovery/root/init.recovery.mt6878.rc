@@ -33,6 +33,7 @@ on late-fs
 
 on post-fs
     write /proc/bootprof "ChimpanziCloud: started post-fs sequence"
+    start boot-hal-1-2
     symlink /dev/block/sda /dev/block/mmcblk0boot0
     symlink /dev/block/sdb /dev/block/mmcblk0boot1
     symlink /dev/block/mmcblk0boot0 /dev/block/by-name/preloader_a
@@ -151,3 +152,8 @@ on property:crypto.ready=0
     stop mobicore
     stop vendor.keymint-trustonic
     stop tee-1-1
+
+on post-fs-data
+    write /proc/bootprof "ChimpanziCloud: started post-fs-data sequence"
+    start health-hal-2-1
+    setprop sys.usb.config mtp,adb
