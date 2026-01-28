@@ -63,3 +63,6 @@ RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.h
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
+   
+# Fix Bootloop when reboot to system 
+$(shell rm -rf out/target/product/vienna/vendor_ramdisk/first_stage_ramdisk)

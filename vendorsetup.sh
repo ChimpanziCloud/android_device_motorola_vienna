@@ -20,7 +20,7 @@ export FOX_BASH_TO_SYSTEM_BIN=1
 export OF_SCREEN_H=2400
 
 # Round corners
-export OF_STATUS_INDENT_LEFT=48
+export OF_STATUS_INDENT_LEFT=52
 export OF_STATUS_INDENT_RIGHT=48
 
 # Skip /data, internal storage decryption
