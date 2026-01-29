@@ -63,6 +63,8 @@ RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/android.h
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
-   
-# Fix Bootloop when reboot to system 
-$(shell rm -rf out/target/product/vienna/vendor_ramdisk/first_stage_ramdisk)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/motorola/vienna/prebuilt/modules,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
+    $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6878:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6878
+    $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
