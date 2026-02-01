@@ -18,7 +18,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 TARGET_BOARD_SUFFIX := _64
-TARGET_USES_64_BIT_BINDER := true
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
@@ -67,11 +66,14 @@ BOARD_MKBOOTIMG_ARGS += \
 TARGET_NO_RECOVERY := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_RAMDISK_USE_LZ4 := true
-BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := false
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-BOARD_VENDOR_RAMDISK_FRAGMENTS := recovery
-BOARD_VENDOR_RAMDISK_FRAGMENT.recovery.MKBOOTIMG_ARGS := --ramdisk_type RECOVERY
-BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := false
+TW_LOAD_VENDOR_BOOT_MODULES := true
+
+# Treble
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
+PRODUCT_FULL_TREBLE := true
 
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -110,12 +112,12 @@ BOARD_USES_METADATA_PARTITION := true
 # ========================================
 # Encryption / Decryption Support (FBE)
 # ========================================
-INCLUDE_CRYPTO := false
+INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO := $(INCLUDE_CRYPTO)
 TW_INCLUDE_CRYPTO_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE_METADATA_DECRYPT := $(INCLUDE_CRYPTO)
-#TW_USE_FSCRYPT_POLICY := 2
+TW_USE_FSCRYPT_POLICY := 2
 
 # ========================================
 # Anti-Rollback Bypass
@@ -136,12 +138,17 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # AVB (Android Verified Boot)
 # ========================================
 BOARD_AVB_ENABLE := true
+BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 
 # ========================================
 # FSTab
 # ========================================
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6878.rc
+
 TW_SKIP_ADDITIONAL_FSTAB := true
 
 # ========================================
@@ -163,7 +170,7 @@ TW_FRAMERATE := 60
 TW_NO_SCREEN_BLANK := true
 
 # CPU temp sysfs path, if it is zero all the time
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone9/temp
+TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/smart_battery/power_supply/battery/capacity"
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi

@@ -36,6 +36,14 @@
             <instance>internal/0</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>android.system.keystore2</name>
+        <version>3</version>
+        <interface>
+            <name>IKeystoreService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.radio</name>
         <version>1.2</version>
