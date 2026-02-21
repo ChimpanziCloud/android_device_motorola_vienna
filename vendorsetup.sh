@@ -31,9 +31,3 @@ export OF_FORCE_CASEFOLDING=1
 
 # Drastic Size Reduction
 export FOX_DRASTIC_SIZE_REDUCTION=1
-
-# ccache
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-export CCACHE_DIR=.ccache
-export CCACHE_TEMPDIR=.ccache/tmp
