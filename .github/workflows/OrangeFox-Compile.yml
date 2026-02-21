@@ -61,7 +61,7 @@ jobs:
     - name: Swap Space
       uses: pierotofy/set-swap-space@master
       with:
-        swap-size-gb: 18
+        swap-size-gb: 16
       
     - name: Build Environment
       run: |
