@@ -45,7 +45,7 @@ on:
 jobs:
   build:
     name: Build OFR by ${{ github.actor }}
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
