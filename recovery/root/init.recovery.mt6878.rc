@@ -1,3 +1,4 @@
+import /init.recovery.mounts.rc
 import /trustonic.rc
 import /tee.rc
 
