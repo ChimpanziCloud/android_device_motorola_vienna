@@ -67,8 +67,8 @@ Minor checks
 - [✔] reboot to bootloader
 - [✔] reboot to recovery
 - [✔] poweroff
-- [✖] battery level
-- [✖] temperature
+- [✔] battery level
+- [✖] temperature (thermal zone not available during recovery)
 - [✖] encrypted backups
 - [✖] input devices via USB (USB-OTG) - keyboard and mouse
 - [✖] USB mass storage export
