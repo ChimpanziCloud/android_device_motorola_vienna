@@ -1,0 +1,15 @@
+on boot
+    mkdir /mnt/vendor/nvcfg
+    mkdir /mnt/vendor/nvdata
+    mkdir /mnt/vendor/persist
+    mkdir /mnt/product/persist
+    mkdir /mnt/vendor/protect_f
+    mkdir /mnt/vendor/protect_s
+    mkdir /mnt/vendor/tzapp
+    mount ext4 /dev/block/by-name/nvcfg /mnt/vendor/nvcfg rw
+    mount ext4 /dev/block/by-name/nvdata /mnt/vendor/nvdata rw
+    mount ext4 /dev/block/by-name/prodpersist /mnt/product/persist rw
+    mount ext4 /dev/block/by-name/protect1 /mnt/vendor/protect_f rw
+    mount ext4 /dev/block/by-name/protect2 /mnt/vendor/protect_s rw
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
+    mount ext4 /dev/block/by-name/tzapp_a /mnt/vendor/tzapp rw
