@@ -4,8 +4,7 @@ import /tee.rc
 on early-init
     write /proc/bootprof "ChimpanziCloud: started early-init sequence"
     wait /sys/fs/selinux/enforce
-    write /sys/fs/selinux/enforce 0
-    start vendor.gatekeeper-default
+    write /sys/fs/selinux/enforce 1
 
 on init
     write /proc/bootprof "ChimpanziCloud: started init sequence"
