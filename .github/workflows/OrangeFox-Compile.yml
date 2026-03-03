@@ -24,7 +24,13 @@ on:
       DEVICE_TREE_BRANCH:
         description: 'OrangeFox Device Tree Branch'
         required: true
-        default: 'twrp_12.1'
+        default: 'tmp'
+        type: choice
+        options:
+        - twrp_12.1
+        - twrp_14.1
+        - test
+        - tmp
       DEVICE_PATH:
         description: 'Specify your Device Path'
         required: true
@@ -33,14 +39,23 @@ on:
         description: 'Specify your Device Codename'
         required: true
         default: 'vienna'
-      BUILD_TYPE:
-        description: 'Specify your Build Type'
+      RELEASE_TYPE:
+        description: 'Specify your Release Type'
         required: true
         default: 'Debug'
         type: choice
         options:
         - Release
         - Debug
+      BUILD_TYPE:
+        description: 'Specify your Build Type'
+        required: true
+        default: 'eng'
+        type: choice
+        options:
+        - user
+        - userdebug
+        - eng
       BUILD_TARGET:
         description: 'Specify your Build Target'
         required: true
@@ -134,7 +149,7 @@ jobs:
         name: OrangeFox Recovery for ${{ inputs.DEVICE_NAME }} // ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
-          ## OrangeFox Recovery Build - ${{ inputs.BUILD_TYPE }}
+          ## OrangeFox Recovery Build - ${{ inputs.RELEASE_TYPE }}
           Build: fox_${{ inputs.MANIFEST_BRANCH }}
           Device: [Device Tree/Branch](${{ env.DEVICE_TREE_URL }}/tree/${{ inputs.DEVICE_TREE_BRANCH }})
           Commit: Most recent [commit](${{ env.DEVICE_TREE_URL }}/commit/${{ env.COMMIT_ID }}) during building.
