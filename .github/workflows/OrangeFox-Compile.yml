@@ -120,7 +120,7 @@ jobs:
 
         if [ "${{ inputs.MANIFEST_BRANCH }}" = "12.1" ]; then
           echo "Building for 12.1"
-          lunch twrp_${{ inputs.DEVICE_NAME }}-eng && make clean && mka adbd ${{ inputs.BUILD_TARGET }}image
+          lunch twrp_${{ inputs.DEVICE_NAME }}-${{ inputs.BUILD_TYPE}} && make clean && mka adbd ${{ inputs.BUILD_TARGET }}image
         fi
 
         if [ "${{ inputs.MANIFEST_BRANCH }}" = "14.1" ]; then
