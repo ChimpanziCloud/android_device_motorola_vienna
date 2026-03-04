@@ -5,7 +5,7 @@ import /tee.rc
 on early-init
     write /proc/bootprof "ChimpanziCloud: started early-init sequence"
     wait /sys/fs/selinux/enforce
-    write /sys/fs/selinux/enforce 1
+    write /sys/fs/selinux/enforce 0
 
 on init
     write /proc/bootprof "ChimpanziCloud: started init sequence"
