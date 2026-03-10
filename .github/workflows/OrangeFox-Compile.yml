@@ -27,6 +27,7 @@ on:
         default: 'tmp'
         type: choice
         options:
+        - stable
         - twrp_12.1
         - twrp_14.1
         - test
