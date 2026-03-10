@@ -24,7 +24,7 @@ on:
       DEVICE_TREE_BRANCH:
         description: 'OrangeFox Device Tree Branch'
         required: true
-        default: 'tmp'
+        default: 'stable'
         type: choice
         options:
         - stable
