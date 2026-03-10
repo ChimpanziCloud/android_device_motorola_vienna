@@ -1,10 +1,7 @@
-# maintained by ChimpanziCloud (boii ts tuff)
-# chances of working:0.1%
-
-# recovery tree path
+# Set Local_path
 LOCAL_PATH := $(call my-dir)
 
-# checks if target device is vienna ( motorola edge 50 neo)
+# Check if target device is codename vienna
 ifeq ($(TARGET_DEVICE),vienna)
     include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
