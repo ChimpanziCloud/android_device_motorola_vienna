@@ -58,12 +58,12 @@ Medium checks
 - [✔] F2FS/EXT4 Support, exFAT/NTFS where supported
 - [✔] all important partitions listed in mount/backup lists
 - [✖] backup/restore to/from external (USB-OTG) storage
-- [✔] decrypt /data
+- [✖] decrypt /data (W.I.P)
 - [✖] Correct date
-- [✖] USB-OTG (flash drive)
+- [✖] USB-OTG (flash drive) (W.I.P)
 
 Minor checks
-- [✖] MTP export
+- [✖] MTP export (W.I.P)
 - [✔] reboot to bootloader
 - [✔] reboot to recovery
 - [✔] poweroff
@@ -73,7 +73,7 @@ Minor checks
 - [✖] input devices via USB (USB-OTG) - keyboard and mouse
 - [✖] USB mass storage export
 - [✔] set brightness
-- [✖] vibrate
+- [✖] vibrate (W.I.P)
 - [✔] screenshot
 - [✖] partition SD card (No SD card slot)
 - [✔] Fastbootd
