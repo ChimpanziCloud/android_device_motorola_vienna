@@ -79,7 +79,7 @@ Minor checks
 - [✔] Fastbootd
 
 ## To Build with OrangeFox manifest
-**Clone manifest ofrp-12.1**
+**Clone manifest ofrp-14.1**
 ```bash
 sudo apt install git
 sudo apt install repo
@@ -89,22 +89,22 @@ cd scripts
 sudo bash setup/android_build_env.sh
 sudo bash setup/install_android_sdk.sh
 ```
-**Sync manifest ofrp-12.1**
+**Sync manifest ofrp-14.1**
 ```bash
 mkdir ~/OrangeFox_sync
 cd ~/OrangeFox_sync
 git clone https://gitlab.com/OrangeFox/sync.git
 cd ~/OrangeFox_sync/sync/
-./orangefox_sync.sh --branch 12.1 --path ~/fox_12.1
+./orangefox_sync.sh --branch 14.1 --path ~/fox_14.1
 ```
 **Cloning the device tree**
 ```bash
-cd ~/fox_12.1
-git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b twrp-12.1 device/motorola/vienna
+cd ~/fox_14.1
+git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b stable device/motorola/vienna
 ```
 **Build**
 ```bash
-build/envsetup.sh; lunch twrp_vienna-eng && mka adbd vendorbootimage
+build/envsetup.sh; lunch twrp_vienna-ap2a-eng && mka adbd vendorbootimage
 ```
 ## To Build with TeamWin manifest (Not Reccomended/Broken)
 **Clone manifest twrp-12.1**
@@ -113,7 +113,7 @@ sudo apt install git
 sudo apt install repo
 mkdir ~/twrp_12.1
 cd ~/twrp_12.1
-repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1
+repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-14.1
 ```
 **Sync manifest twrp-12.1**
 ```bash
@@ -122,7 +122,7 @@ repo sync
 **Cloning the device tree**
 ```bash
 cd ~/twrp_12.1
-git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b twrp-12.1 device/motorola/vienna
+git clone https://github.com/ChimpanziCloud/android_device_motorola_vienna.git -b stable device/motorola/vienna
 ```
 **Build**
 ```bash
