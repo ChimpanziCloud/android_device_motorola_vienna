@@ -39,8 +39,8 @@ TW_LOAD_VENDOR_MODULES := "goodix_gt96x_u_mmi.ko goodix_brl_u_mmi.ko touchscreen
 # ========================================
 TARGET_OTA_ASSERT_DEVICE := vienna
 PRODUCT_PLATFORM := mt6878
-TARGET_BOARD_PLATFORM := common
-TARGET_BOOTLOADER_BOARD_NAME := mgvi_64_ww_armv82
+TARGET_BOARD_PLATFORM := mt6878
+TARGET_BOOTLOADER_BOARD_NAME := vienna
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
