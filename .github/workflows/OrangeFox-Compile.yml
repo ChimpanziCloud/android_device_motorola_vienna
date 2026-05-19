@@ -27,6 +27,7 @@ on:
         default: 'stable'
         type: choice
         options:
+        - main
         - stable
         - twrp_12.1
         - twrp_14.1
