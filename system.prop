@@ -1,9 +1,17 @@
+# Basic Props
 ro.postinstall.fstab.prefix=/system
 ro.vendor.mediatek.platform=MT6878
-ro.sys.usb.storage.type=mtp
+
+#For Decryption support
 ro.hardware.gatekeeper=trustonic
 ro.hardware.kmsetkey=trustonic
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
+ro.build.tags=release-keys
+ro.system.build.tags=release-keys
+ro.vendor.build.tags=release-keys
+
+# MTP support testing
 vendor.usb.ffs.mtp.ready=1
 vvendor.usb.use_ffs_mtp=1
+ro.sys.usb.storage.type=mtp
