@@ -124,7 +124,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # ========================================
 # Encryption / Decryption Support (FBE)
 # ========================================
-INCLUDE_CRYPTO := false
+INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO := $(INCLUDE_CRYPTO)
 TW_INCLUDE_CRYPTO_FBE := $(INCLUDE_CRYPTO)
 TW_INCLUDE_FBE := $(INCLUDE_CRYPTO)

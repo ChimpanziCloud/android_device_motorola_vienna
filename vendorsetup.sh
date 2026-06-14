@@ -54,7 +54,7 @@ export OF_STATUS_INDENT_LEFT=52
 export OF_STATUS_INDENT_RIGHT=48
 
 # Skip /data, internal storage decryption
-export OF_SKIP_FBE_DECRYPTION=1
+export OF_SKIP_FBE_DECRYPTION=0
 
 # Optional
 export OF_FORCE_CASEFOLDING=1

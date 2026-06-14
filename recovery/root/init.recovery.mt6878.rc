@@ -1,4 +1,6 @@
 import /init.recovery.mounts.rc
+import /trustonic.rc
+import /tee.rc
 
 on early-init
     write /proc/bootprof "ChimpanziCloud: started early-init sequence"
@@ -87,6 +89,46 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     disabled
     seclabel:u:r:recovery:s0
+
+service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
+    class hal
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    disabled
+    seclabel u:r:recovery:s0
+    
+service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
+    class early_hal
+    interface aidl android.hardware.security.keymint.IKeyMintDevice/default
+    interface aidl android.hardware.security.keymint.IRemotelyProvisionedComponent/default
+    interface aidl android.hardware.security.sharedsecret.ISharedSecret/default
+    interface aidl android.hardware.security.secureclock.ISecureClock/default
+    user root
+    group root drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    seclabel u:r:recovery:s0
+    
+service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
+    class early_hal
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
+    seclabel u:r:recovery:s0
+    
+on property:hwservicemanager.ready=true
+    # Copy over decryption files which take too much storage
+    mkdir /mounted_vendor/
+    mount /dev/block/by-name/vendor /mountedvendor -v
+    cp /mountedvendor/app/mcRegistry/* /vendor/app/mcRegistry/ -p
+    umount /dev/block/by-name/vendor /mountedvendor -v
+    rm -rf /mountedvendor
+    write /proc/bootprof "ChimpanziCloud: start decryption (hwservicemanager.ready)" # Log Decryption
+    start mobicore
+    start vendor.gatekeeper-default
+    start vendor.keymint-trustonic
+    start tee-1-1
 
 on post-fs-data
     write /proc/bootprof "ChimpanziCloud: started post-fs-data sequence"
