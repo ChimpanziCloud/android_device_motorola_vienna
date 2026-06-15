@@ -118,14 +118,7 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
     seclabel u:r:recovery:s0
     
 on property:hwservicemanager.ready=true
-    # Copy over decryption files which take too much storage
-    mkdir /mounted_vendor/
-    mount /dev/block/by-name/vendor /mountedvendor -v
-    cp /mountedvendor/app/mcRegistry/* /vendor/app/mcRegistry/ -p
-    umount /dev/block/by-name/vendor /mountedvendor -v
-    rm -rf /mountedvendor
     write /proc/bootprof "ChimpanziCloud: start decryption (hwservicemanager.ready)" # Log Decryption
-    start mobicore
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
