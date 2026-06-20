@@ -42,6 +42,19 @@ on fs
     # for usb otg sdcard hot plug detection
     write /sys/module/block/parameters/events_dfl_poll_msecs 1000
 
+on property:sys.usb.config=none && property:sys.usb.configfs=1
+    write /config/usb_gadget/g1/UDC ""
+    write /config/usb_gadget/g1/idVendor ${vendor.usb.vid}
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    rm /config/usb_gadget/g1/configs/b.1/f3
+    rm /config/usb_gadget/g1/configs/b.1/f4
+    rm /config/usb_gadget/g1/configs/b.1/f5
+    rmdir /config/usb_gadget/g1/functions/mtk_rndis.gs4
+    rmdir /config/usb_gadget/g1/functions/ncm.gs6
+    write /sys/class/udc/${vendor.usb.controller}/device/saving 0
+    write /sys/class/udc/${vendor.usb.controller}/device/u3_lpm 1
+
 # Main ADB Implementation
 on property:sys.usb.config=adb && property:sys.usb.configfs=1
     start adbd
@@ -54,6 +67,9 @@ on property:sys.usb.config=adb && property:sys.usb.configfs=1
 # Fastboot Implementation
 on property:sys.usb.config=fastboot
     start fastbootd
+
+on property:sys.usb.config=mtp,adb && property:sys.usb.configfs=1
+    start adbd
 
 # Picture Transfer Protocol (PTP) Implementation
 on property:sys.usb.config=ptp,adb && property:sys.usb.configfs=1
@@ -85,7 +101,6 @@ on property:sys.usb.config=mtp && property:sys.usb.configfs=1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,adb && property:sys.usb.configfs=1
-    start adbd
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb"
     write /config/usb_gadget/g1/idProduct ${vendor.usb.pid}
     write /config/usb_gadget/g1/os_desc/use 1
