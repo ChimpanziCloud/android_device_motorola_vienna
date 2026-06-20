@@ -43,7 +43,14 @@ on fs
     write /sys/module/block/parameters/events_dfl_poll_msecs 1000
 
 on property:sys.usb.config=none && property:sys.usb.configfs=1
-    write /config/usb_gadget/g1/UDC ""
+    write /config/usb_gadget/g1/UDC "none"
+    stop adbd
+    setprop sys.usb.ffs.ready 0
+    write /config/usb_gadget/g1/bDeviceClass 0
+    write /config/usb_gadget/g1/bDeviceSubClass 0
+    write /config/usb_gadget/g1/bDeviceProtocol 0
+    rmdir /config/usb_gadget/g1/functions/rndis.gs4
+    setprop sys.usb.state ${sys.usb.config}
     write /config/usb_gadget/g1/idVendor ${vendor.usb.vid}
     rm /config/usb_gadget/g1/configs/b.1/f1
     rm /config/usb_gadget/g1/configs/b.1/f2
