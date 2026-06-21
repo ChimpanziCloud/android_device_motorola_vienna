@@ -32,6 +32,7 @@ on:
         - twrp_12.1
         - twrp_14.1
         - test
+        - test_mtp
         - tmp
       DEVICE_PATH:
         description: 'Specify your Device Path'
