@@ -119,10 +119,19 @@ service vendor.gatekeeper-default /vendor/bin/hw/android.hardware.gatekeeper-ser
     
 on property:hwservicemanager.ready=true
     write /proc/bootprof "ChimpanziCloud: start decryption (hwservicemanager.ready)" # Log Decryption
+    mkdir /mnt/vendor/persist
+    mkdir /mnt/product/persist
+    mkdir /mnt/vendor/tzapp
+    mount ext4 /dev/block/by-name/prodpersist /mnt/product/persist rw
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
+    mount ext4 /dev/block/by-name/tzapp_a /mnt/vendor/tzapp rw
     start vendor.gatekeeper-default
     start vendor.keymint-trustonic
     start tee-1-1
 
 on post-fs-data
     write /proc/bootprof "ChimpanziCloud: started post-fs-data sequence"
+    umount /dev/block/by-name/prodpersist
+    umount /dev/block/by-name/persist
+    umount /dev/block/by-name/tzapp_a
     start health-hal-2-1
