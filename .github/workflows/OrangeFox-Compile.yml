@@ -34,6 +34,7 @@ on:
         - test
         - test_mtp
         - test_no_lib
+        - test_a15_libs
         - tmp
       DEVICE_PATH:
         description: 'Specify your Device Path'
