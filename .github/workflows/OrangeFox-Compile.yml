@@ -33,6 +33,7 @@ on:
         - twrp_14.1
         - test
         - test_mtp
+        - test_no_lib
         - tmp
       DEVICE_PATH:
         description: 'Specify your Device Path'
