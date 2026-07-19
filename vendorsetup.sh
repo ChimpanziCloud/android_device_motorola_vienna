@@ -10,6 +10,9 @@ export FOX_BUILD_DEVICE=vienna
 # Device uses virtual ab ota update
 export FOX_VIRTUAL_AB_DEVICE=1
 
+# Device uses Vendor_Boot partition for recovery ramdisk
+export FOX_VENDOR_BOOT_RECOVERY=1
+
 # LZMA Compression for Size Reduction
 export OF_USE_LZMA_COMPRESSION=1
 
