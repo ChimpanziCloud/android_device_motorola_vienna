@@ -59,6 +59,15 @@ export OF_STATUS_INDENT_RIGHT=48
 # Skip /data, internal storage decryption
 export OF_SKIP_FBE_DECRYPTION=0
 
+# KernelSU support
+export FOX_ENABLE_KERNELSU_SUPPORT=1
+
+# KernelSU-Next support
+export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
+
+# SukiSU support
+export FOX_ENABLE_SUKISU_SUPPORT=1
+
 # Optional
 export OF_FORCE_CASEFOLDING=1
 
