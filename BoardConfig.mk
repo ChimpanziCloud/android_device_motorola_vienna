@@ -23,7 +23,7 @@ ENABLE_SCHEDBOOST := true
 # ========================================
 # Touch Screen Modules
 # ========================================
-TW_LOAD_VENDOR_MODULES := "goodix_gt96x_u_mmi.ko goodix_brl_u_mmi.ko touchscreen_u_mmi.ko flashlight.ko flashlights-ocp81373.ko fs3001.ko"
+TW_LOAD_VENDOR_MODULES := "goodix_gt96x_u_mmi.ko goodix_brl_u_mmi.ko touchscreen_u_mmi.ko flashlight.ko flashlights-ocp81373.ko lm3644.ko fs3001.ko"
 
 # ========================================
 # Variables (Device-Specific)
