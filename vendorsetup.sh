@@ -44,10 +44,13 @@ export OF_FORCE_DATA_FORMAT_F2FS=1
 export OF_ENABLE_FRP_ADDON=1
 
 # Set to the maintainer's name
-export OF_MAINTAINER=cloud
+export OF_MAINTAINER=6xcloud
 
 # Use this to change the default time zone
 export OF_DEFAULT_TIMEZONE=IST-5:30
+
+# Flashlight path
+export OF_FL_PATH1=/tmp/of_torch/
 
 # Device specific
 export OF_SCREEN_H=2400
