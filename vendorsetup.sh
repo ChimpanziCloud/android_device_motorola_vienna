@@ -58,9 +58,6 @@ export OF_FL_PATH1=/tmp/of_torch/
 # Quick backup list
 export OF_QUICK_BACKUP_LIST="/data;/storage;/boot;"
 
-# /super partition size in decimals
-export OF_DYNAMIC_FULL_SIZE=
-
 # Device does not have /persist partition
 export OF_DEVICE_WITHOUT_PERSIST=1
 
@@ -85,6 +82,11 @@ export OF_STATUS_INDENT_RIGHT=63
 
 # Optional
 export OF_FORCE_CASEFOLDING=1
+
+# Add extra rooting support
+export FOX_ENABLE_KERNELSU_SUPPORT=1
+export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
+export FOX_ENABLE_SUKISU_SUPPORT=1
 
 # Drastic Size Reduction
 export FOX_DRASTIC_SIZE_REDUCTION=0
