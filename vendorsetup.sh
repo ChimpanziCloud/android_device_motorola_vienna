@@ -43,6 +43,9 @@ export OF_FORCE_DATA_FORMAT_F2FS=1
 # Set this to 1 to include an addon for removing factory reset protection (FRP)
 export OF_ENABLE_FRP_ADDON=1
 
+# AromaFM does not work
+export FOX_DELETE_AROMAFM=1
+
 # Set to the maintainer's name
 export OF_MAINTAINER=6xcloud
 
@@ -52,18 +55,36 @@ export OF_DEFAULT_TIMEZONE=IST-5:30
 # Flashlight path
 export OF_FL_PATH1=/tmp/of_torch/
 
+# Quick backup list
+export OF_QUICK_BACKUP_LIST="/data;/storage;/boot;"
+
+# /super partition size in decimals
+export OF_DYNAMIC_FULL_SIZE=
+
+# Device does not have /persist partition
+export OF_DEVICE_WITHOUT_PERSIST=1
+
 # Device specific
 export OF_SCREEN_H=2400
 
-# Round corners
-export OF_STATUS_INDENT_LEFT=52
-export OF_STATUS_INDENT_RIGHT=48
+# Device has notch in statusbar
+export OF_HIDE_NOTCH=1
 
-# Skip /data, internal storage decryption
-export OF_SKIP_FBE_DECRYPTION=0
+# Statusbar height
+export OF_STATUS_H=119
+
+# Disables the ability to place clock in the middle of the screen
+export OF_CLOCK_POS=1
+
+# Set this to 1 to replace the "Swipe up" lockscreen screen with a button
+export OF_USE_LOCKSCREEN_BUTTON=1
+
+# Round corners
+export OF_STATUS_INDENT_LEFT=63
+export OF_STATUS_INDENT_RIGHT=63
 
 # Optional
 export OF_FORCE_CASEFOLDING=1
 
 # Drastic Size Reduction
-export FOX_DRASTIC_SIZE_REDUCTION=1
+export FOX_DRASTIC_SIZE_REDUCTION=0
