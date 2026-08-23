@@ -17,6 +17,9 @@
 /protect_s		ext4		/dev/block/by-name/protect2			flags=display=protect_s;backup
 /nvram			emmc		/dev/block/by-name/nvram			flags=display=nvram;backup
 
+# Decryption Partitions
+/mnt/vendor/tzapp ext4          /dev/block/by-name/tzapp_a   flags=display=tzapp;backup
+
 # Removable Storage
 /usb_otg		auto		/dev/block/sda					flags=display="USB-Storage";storage;wipeingui;removable;backup=0
 
