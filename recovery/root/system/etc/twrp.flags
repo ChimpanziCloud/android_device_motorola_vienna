@@ -11,13 +11,6 @@
 /data			f2fs		/dev/block/by-name/userdata			flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption,fsverity
 /misc			emmc		/dev/block/by-name/misc			flags=display=misc;backup
 
-# Sensitive Data
-/nvcfg			ext4		/dev/block/by-name/nvcfg			flags=display=nvcfg;backup
-/persist_image		ext4		/dev/block/by-name/persist			flags=display=persist;backup
-/persist_image2	ext4		/dev/block/by-name/prodpersist		flags=display=prodpersist;backup
-/persistent		emmc		/dev/block/by-name/frp				flags=display=persistent;backup
-/mnt/vendor/tzapp ext4          /dev/block/by-name/tzapp_a   flags=display=tzapp_a;backup
-
 # IMEI and modem related
 /nvdata		ext4		/dev/block/by-name/nvdata			flags=display=nvdata;backup
 /protect_f		ext4		/dev/block/by-name/protect1			flags=display=protect_f;backup
@@ -28,4 +21,4 @@
 /usb_otg		auto		/dev/block/sda					flags=display="USB-Storage";storage;wipeingui;removable;backup=0
 
 # Internal Storage
-/storage		ext4		/data/media/0					flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
+/storage		auto		/data/media/0					flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
