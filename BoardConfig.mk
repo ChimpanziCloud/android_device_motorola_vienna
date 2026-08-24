@@ -23,7 +23,7 @@ ENABLE_SCHEDBOOST := true
 # ========================================
 # Touch Screen Modules
 # ========================================
-TW_LOAD_VENDOR_MODULES := "goodix_gt96x_u_mmi.ko goodix_brl_u_mmi.ko touchscreen_u_mmi.ko flashlight.ko flashlights-ocp81373.ko lm3644.ko fs3001.ko"
+TW_LOAD_VENDOR_MODULES := "touchscreen_u_mmi.ko fs3001.ko"
 
 # ========================================
 # Variables (Device-Specific)
@@ -93,7 +93,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := false
-TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_LOAD_VENDOR_BOOT_MODULES := false
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
 # ========================================
