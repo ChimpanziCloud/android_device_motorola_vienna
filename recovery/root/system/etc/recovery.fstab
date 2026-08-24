@@ -23,12 +23,9 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
 /devices/platform/soc/11201000.usb0/11200000.xhci* auto vfat defaults voldmanaged=usbotg:auto
 /devices/platform/soc/11211000.usb1/11210000.xhci* auto vfat defaults voldmanaged=usbotg:auto
 
-/dev/block/by-name/persist /persist ext4 ro  wait,slotselect,avb,logical,first_stage_mount
-/dev/block/by-name/prodpersist /prodpersist ext4 ro wait,slotselect,avb,logical,first_stage_mount
-/dev/block/by-name/tzapp_a /tzapp ext4 ro wait,slotselect,avb,logical,first_stage_mount
-
 /dev/block/by-name/init_boot /init_boot emmc defaults defaults
 /dev/block/by-name/boot /boot emmc defaults first_stage_mount,nofail,slotselect
 /dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults first_stage_mount,nofail,slotselect,avb=vbmeta
 /dev/block/by-name/vendor_boot /vendor_boot emmc defaults defaults
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
+/dev/block/by-name/misc /misc emmc defaults defaults
