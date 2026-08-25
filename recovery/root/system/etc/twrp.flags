@@ -1,3 +1,43 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+# mount point          fstype  device                                        device2              flags
+
+/metadata              f2fs    /dev/block/by-name/metadata                                        flags=display="Metadata";backup=1
+/data                  f2fs    /dev/block/by-name/userdata                                        flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption,fsverity
+/storage               f2fs    /data/media/0                                                      flags=backup=1;display="Internal Storage";usermrf;fsflags="bind,utf8";removable
+
+# Boot
+/boot                  emmc    /dev/block/bootdevice/by-name/boot                                 flags=backup=1;slotselect;flashimg=1
+/dtbo                  emmc    /dev/block/bootdevice/by-name/dtbo                                 flags=backup=1;display="Dtbo";slotselect;flashimg=1
+/vendor_boot           emmc    /dev/block/bootdevice/by-name/vendor_boot                          flags=backup=1;display="vendor_boot";slotselect;flashimg=1
+/exaid                 emmc    /dev/block/bootdevice/by-name/exaid                                flags=backup=1;display="exaid";flashimg=1
+/vbmeta                emmc    /dev/block/bootdevice/by-name/vbmeta                               flags=backup=1;display="vbmeta";slotselect;flashimg=1
+/vbmeta_system         emmc    /dev/block/bootdevice/by-name/vbmeta_system                        flags=backup=1;display="vbmeta_system";slotselect;flashimg=1
+/logo                  emmc    /dev/block/bootdevice/by-name/logo                                 flags=backup=1;display="logo";flashimg=1
+/misc                  emmc    /dev/block/bootdevice/by-name/misc                                 flags=backup=1;display="misc";flashimg=1
+
+# Persistent Firmware & Properties
+/persist               ext4    /dev/block/bootdevice/by-name/persist                              flags=display="Persist";backup=0
+/persist_image         emmc    /dev/block/bootdevice/by-name/persist                              flags=display="Persist";flashimg=1
+
+# Firmware partitions
+/bluetooth             vfat    /dev/block/bootdevice/by-name/bluetooth                            flags=display="bluetooth";slotselect;fsflags="ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait"
+/bluetooth_image       emmc    /dev/block/bootdevice/by-name/bluetooth                            flags=backup=1;display="bluetooth";slotselect;backup=1;flashimg=1
+/dsp                   vfat    /dev/block/bootdevice/by-name/dsp                                  flags=display="dsp";slotselect
+/dsp_image             emmc    /dev/block/bootdevice/by-name/dsp                                  flags=backup=1;display="dsp";slotselect;flashimg=1
+/modem                 vfat    /dev/block/bootdevice/by-name/modem                                flags=display="Modem";slotselect;fsflags="ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait"
+/modem_img             emmc    /dev/block/bootdevice/by-name/modem                                flags=backup=1;display="Modem";slotselect;flashimg=1
+/efs1                  emmc    /dev/block/bootdevice/by-name/modemst1                             flags=backup=1;display=EFS
+/efs2                  emmc    /dev/block/bootdevice/by-name/modemst2                             flags=backup=1;subpartitionof=/efs1
+/efsc                  emmc    /dev/block/bootdevice/by-name/fsc                                  flags=backup=1;subpartitionof=/efs1
+/efsg                  emmc    /dev/block/bootdevice/by-name/fsg                                  flags=backup=1;subpartitionof=/efs1
+
+# Removable storage
+/usb_otg               auto    /dev/block/sda                                               	  flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable
+#
+
 /boot			emmc		/dev/block/by-name/boot			flags=display=boot;slotselect;backup=1;flashimg
 /init_boot          	emmc     	/dev/block/by-name/init_boot			flags=display=init_boot;slotselect;backup=1;flashimg
 /vendor_boot		emmc		/dev/block/by-name/vendor_boot 		flags=display=vendor_boot;slotselect;backup=1;flashimg
@@ -7,8 +47,6 @@
 # Firmware								
 /dtbo			emmc		/dev/block/by-name/dtbo			flags=display=dtbo;slotselect;backup
 /odmdtbo		emmc		/dev/block/by-name/odmdtbo			flags=display=odmdtbo;slotselect;backup
-/metadata		f2fs		/dev/block/by-name/metadata			flags=display=metadata;backup=1
-/data			f2fs		/dev/block/by-name/userdata			flags=fileencryption=aes-256-cts:aes-256-cts:v2+inlinecrypt_optimised,keydirectory=/metadata/vold/metadata_encryption,fsverity
 /misc			emmc		/dev/block/by-name/misc			flags=display=misc;backup
 
 # IMEI and modem related
@@ -19,9 +57,3 @@
 
 # Decryption Partitions
 /mnt/vendor/tzapp ext4          /dev/block/by-name/tzapp_a   flags=display=tzapp;backup
-
-# Removable Storage
-/usb_otg		auto		/dev/block/sda					flags=display="USB-Storage";storage;wipeingui;removable;backup=0
-
-# Internal Storage
-/storage		auto		/data/media/0					flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
