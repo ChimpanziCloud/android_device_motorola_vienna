@@ -20,7 +20,6 @@
 
 # Persistent Firmware & Properties
 /persist               ext4    /dev/block/by-name/persist                                         flags=display="persist";backup=0
-/persist_image         emmc    /dev/block/by-name/persist                                         flags=display="persist";flashimg=1
 
 # Firmware partitions
 /mnt/vendor/tzapp      ext4    /dev/block/by-name/tzapp                                           flags=backup=1;display="tzapp"
