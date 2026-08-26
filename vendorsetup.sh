@@ -58,6 +58,9 @@ export OF_FL_PATH1=/tmp/of_torch/
 # Quick backup list
 export OF_QUICK_BACKUP_LIST="/data;/boot;"
 
+# Default fox settings directory where config is stored
+export FOX_SETTINGS_ROOT_DIRECTORY="/persist"
+
 # Device specific
 export OF_SCREEN_H=2400
 
