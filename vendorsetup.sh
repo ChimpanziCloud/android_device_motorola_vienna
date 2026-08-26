@@ -37,6 +37,9 @@ export OF_UNBIND_SDCARD_F2FS=1
 # avoid MTP issues after data format
 export OF_BIND_MOUNT_SDCARD_ON_FORMAT=1
 
+# Set to 1 to attempt to unmount the SD cards before rebooting
+export OF_UNMOUNT_SDCARDS_BEFORE_REBOOT=1
+
 # Set this to 1 to force the selection of f2fs when formatting data
 export OF_FORCE_DATA_FORMAT_F2FS=1
 
