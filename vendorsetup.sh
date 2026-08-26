@@ -56,10 +56,7 @@ export OF_DEFAULT_TIMEZONE=IST-5:30
 export OF_FL_PATH1=/tmp/of_torch/
 
 # Quick backup list
-export OF_QUICK_BACKUP_LIST="/data;/storage;/boot;"
-
-# Device does not have /persist partition
-export OF_DEVICE_WITHOUT_PERSIST=1
+export OF_QUICK_BACKUP_LIST="/data;/boot;"
 
 # Device specific
 export OF_SCREEN_H=2400
@@ -78,7 +75,7 @@ export OF_USE_LOCKSCREEN_BUTTON=1
 
 # Round corners
 export OF_STATUS_INDENT_LEFT=63
-export OF_STATUS_INDENT_RIGHT=63
+export OF_STATUS_INDENT_RIGHT=57
 
 # Optional
 export OF_FORCE_CASEFOLDING=1
