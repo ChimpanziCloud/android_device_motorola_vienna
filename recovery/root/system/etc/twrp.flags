@@ -23,22 +23,7 @@
 /persist_image         emmc    /dev/block/by-name/persist                                         flags=display="persist";flashimg=1
 
 # Firmware partitions
-/modem_img             emmc    /dev/block/bootdevice/by-name/modem                                flags=backup=1;display="Modem";slotselect;flashimg=1
+/mnt/vendor/tzapp      ext4    /dev/block/by-name/tzapp                                           flags=backup=1;display="tzapp"
 
 # Removable storage
 /usb_otg               auto    /dev/block/sdd                                /dev/block/sdd1      flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable
-#
-									
-# Firmware								
-/dtbo			emmc		/dev/block/by-name/dtbo			flags=display=dtbo;slotselect;backup
-/odmdtbo		emmc		/dev/block/by-name/odmdtbo			flags=display=odmdtbo;slotselect;backup
-/misc			emmc		/dev/block/by-name/misc			flags=display=misc;backup
-
-# IMEI and modem related
-/nvdata		ext4		/dev/block/by-name/nvdata			flags=display=nvdata;backup
-/protect_f		ext4		/dev/block/by-name/protect1			flags=display=protect_f;backup
-/protect_s		ext4		/dev/block/by-name/protect2			flags=display=protect_s;backup
-/nvram			emmc		/dev/block/by-name/nvram			flags=display=nvram;backup
-
-# Decryption Partitions
-/mnt/vendor/tzapp ext4          /dev/block/by-name/tzapp_a   flags=display=tzapp;backup
