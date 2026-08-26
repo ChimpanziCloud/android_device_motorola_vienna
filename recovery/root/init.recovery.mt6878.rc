@@ -165,7 +165,7 @@ on post-fs-data
     write /proc/bootprof "ChimpanziCloud: started post-fs-data sequence"
     umount /dev/block/by-name/prodpersist
     umount /dev/block/by-name/persist
-    umount /dev/block/by-name/tzapp_a
+    umount -f /mnt/vendor/tzapp
     start vendor.health-default
 
 on property:twrp.modules.loaded=true
