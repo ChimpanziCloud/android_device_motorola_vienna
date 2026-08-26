@@ -23,7 +23,7 @@
 /persist_image         emmc    /dev/block/by-name/persist                                         flags=display="persist";flashimg=1
 
 # Firmware partitions
-/mnt/vendor/tzapp      ext4    /dev/block/by-name/tzapp_a                                         flags=backup=1;display="tzapp"
+/tzapp                 ext4    /dev/block/by-name/tzapp_a                                         flags=backup=1;display="tzapp"
 
 # Removable storage
-/usb_otg               auto    /dev/block/sdd                                /dev/block/sdd1      flags=display="USB-Storage";storage;wipeingui;removable
+/usb_otg               auto    /dev/block/sdd1                                /dev/block/sdd      flags=display="USB-Storage";storage;wipeingui;removable;fsflags=utf8
