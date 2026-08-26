@@ -64,6 +64,9 @@ export OF_QUICK_BACKUP_LIST="/data;/boot;"
 # Default fox settings directory where config is stored
 export FOX_SETTINGS_ROOT_DIRECTORY="/persist"
 
+# Set this to 1 if your device uses aidl (as opposed to hidl) to handle boot control, particularly changing slots
+export OF_USE_AIDL_BOOT_CONTROL=1
+
 # Device specific
 export OF_SCREEN_H=2400
 
