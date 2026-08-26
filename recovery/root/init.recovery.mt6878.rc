@@ -124,6 +124,14 @@ service virtual_torch /system/bin/virtual_torch.sh
     group root
     seclabel u:r:recovery:s0
     disabled
+
+service vendor.health-default /vendor/bin/hw/android.hardware.health-service.example
+    class hal
+    seclabel u:r:recovery:s0
+    user root
+    group root
+    capabilities WAKE_ALARM BLOCK_SUSPEND
+    file /dev/kmsg w
   
 on property:hwservicemanager.ready=true
     write /proc/bootprof "ChimpanziCloud: start decryption (hwservicemanager.ready)" # Log Decryption
@@ -149,7 +157,7 @@ on post-fs-data
     umount /dev/block/by-name/prodpersist
     umount /dev/block/by-name/persist
     umount /dev/block/by-name/tzapp_a
-    start health-hal-2-1
+    start vendor.health-default
 
 on property:twrp.modules.loaded=true
     wait /sys/class/flashlight_core/flashlight/flashlight_torch
