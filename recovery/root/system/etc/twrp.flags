@@ -22,7 +22,7 @@
 /persist               ext4    /dev/block/by-name/persist                                         flags=display="persist";backup=0
 
 # Firmware partitions
-/mnt/vendor/tzapp      ext4    /dev/block/by-name/tzapp                                           flags=backup=1;display="tzapp"
+/mnt/vendor/tzapp      ext4    /dev/block/by-name/tzapp_a                                           flags=backup=1;display="tzapp"
 
 # Removable storage
 /usb_otg               auto    /dev/block/sdd                                /dev/block/sdd1      flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable
