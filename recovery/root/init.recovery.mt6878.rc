@@ -163,6 +163,8 @@ on property:sys.boot_completed=1
 
 on post-fs-data
     write /proc/bootprof "ChimpanziCloud: started post-fs-data sequence"
+    stop vendor.keymint-trustonic
+    stop tee-1-1
     umount /dev/block/by-name/prodpersist
     umount /dev/block/by-name/persist
     umount -f /mnt/vendor/tzapp
