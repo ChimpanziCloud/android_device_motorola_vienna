@@ -62,6 +62,13 @@ on:
         - boot
         - recovery
         - vendorboot
+      RELEASE_NAME:
+        description: 'Specify your Release Name'
+        required: true
+      ANDROID_VERSION:
+        description: 'Specify your Release Android Version'
+        required: true
+        default: 'a_16'
 
 jobs:
   build:
@@ -143,11 +150,15 @@ jobs:
         files: |
           OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/out/target/product/${{ inputs.DEVICE_NAME }}/OrangeFox*.img
           OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/out/target/product/${{ inputs.DEVICE_NAME }}/OrangeFox*.zip
-        name: OrangeFox Recovery for ${{ inputs.DEVICE_NAME }} // ${{ env.BUILD_DATE }}
+        name: ${{ inputs.RELEASE_NAME }}
         tag_name: ${{ github.run_id }}
         body: |
           ## OrangeFox Recovery Build - ${{ inputs.RELEASE_TYPE }}
           Build: fox_${{ inputs.MANIFEST_BRANCH }}
+          Android Version: ${{ inputs.ANDROID_VERSION }}
           Device: [Device Tree/Branch](${{ env.DEVICE_TREE_URL }}/tree/${{ inputs.DEVICE_TREE_BRANCH }})
-          Commit: Most recent [commit](${{ env.DEVICE_TREE_URL }}/commit/${{ env.COMMIT_ID }}) during building.
+          OrangeFox Recovery Commit:
+          [${{ env.OF_SHORT_COMMIT }}](https://gitlab.com/OrangeFox/bootable/Recovery/-/commit/${{ env.OF_COMMIT_ID }}) - ${{ env.OF_COMMIT_TITLE }} (${{ env.OF_COMMIT_DATE }})
+          Device Tree Commit:
+          [${{ env.SHORT_COMMIT_ID }}](${{ inputs.DEVICE_TREE }}/commit/${{ env.COMMIT_ID }}) - ${{ env.COMMIT_TITLE }} (${{ env.COMMIT_DATE }})
           
