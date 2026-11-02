@@ -7,6 +7,9 @@ export LC_ALL="C"
 # Build Device Codename
 export FOX_BUILD_DEVICE=vienna
 
+# Variant according to android version we are building for
+export FOX_VARIANT=a_14
+
 # Device uses virtual ab ota update
 export FOX_VIRTUAL_AB_DEVICE=1
 

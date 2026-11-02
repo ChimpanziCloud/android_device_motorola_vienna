@@ -83,8 +83,22 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
 
+ifeq ($(FOX_VARIANT),a_14)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/motorola/vienna/per_version_modules/stock_14,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+endif
+
+ifeq ($(FOX_VARIANT),a_15)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/motorola/vienna/per_version_modules/stock_15,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+endif
+
+ifeq ($(FOX_VARIANT),a_16)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/motorola/vienna/per_version_modules/stock_16,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+endif
+
 # To fix bootloop due to missing files
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/motorola/vienna/prebuilt/modules,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6878:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6878 \
     $(LOCAL_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
