@@ -12,7 +12,7 @@ on:
       MANIFEST_BRANCH:
         description: 'OrangeFox Manifest Branch'
         required: true
-        default: '12.1'
+        default: '14.1'
         type: choice
         options:
         - 12.1
@@ -24,7 +24,7 @@ on:
       DEVICE_TREE_BRANCH:
         description: 'OrangeFox Device Tree Branch'
         required: true
-        default: 'stable'
+        default: 'fox_14.1'
         type: choice
         options:
         - fox_14.1
@@ -39,7 +39,7 @@ on:
       RELEASE_TYPE:
         description: 'Specify your Release Type'
         required: true
-        default: 'Debug'
+        default: 'Release'
         type: choice
         options:
         - Release
