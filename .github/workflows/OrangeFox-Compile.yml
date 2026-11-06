@@ -119,6 +119,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}
         set +e
         source build/envsetup.sh
+        export FOX_VARIANT=${{ inputs.ANDROID_VERSION }}
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
 
